@@ -45,5 +45,5 @@
     ports:<br>
         - 8890:8890<br>
  
-#### Step5. 啟動
+### Step5. 啟動
 ### `docker-compose up`
