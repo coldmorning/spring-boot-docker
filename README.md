@@ -9,7 +9,7 @@
 ### Step3. Dockerfile設定
 修改Dockerfile腳本內的 /target/spring-boot-0.0.1-SNAPSHOT.war 的war檔為與專案產生的檔案名稱一致
 
-### Step. Docker-compose設定
+### Step4. Docker-compose設定
  docker-compose.yml   
  
    spinrg_boo_mariadb:
