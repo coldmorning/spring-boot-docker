@@ -11,8 +11,7 @@
 
 ### Step4. Docker-compose設定
  docker-compose.yml   
- 
-   spinrg_boo_mariadb:
+ spinrg_boo_mariadb:
      image: 資料庫版本: MariaDB 10.1(MySQL分支) <br>
      container_name: 1.資料庫container名稱(spinrg_boo_mariadb)<br>
      volumes: 2.資料夾共用,目的是移除container後,資料庫的資料依然存在本機端<br>
