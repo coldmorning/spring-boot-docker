@@ -1,0 +1,30 @@
+version: '3'
+services:
+  spinrg_boo_mariadb:
+    container_name: spinrg_boo_mariadb
+    image: mariadb:10.1
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "3308:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+  spring_boot_project:
+    container_name: spring_boot_project
+    build: ./
+    volumes:
+        - ./:/var/lib/docker
+    depends_on:
+    -   spinrg_boo_mariadb
+    environment:
+        - SPRING.DATASOURCE.DRUID.FIRST.URL=jdbc:mysql://spinrg_boo_mariadb:3306/schemaName?useUnicode=true&characterEncoding=utf8&useSSL=false
+        - SERVER_PORT=8890
+    expose:
+      - "8890"
+    ports:
+        - 8890:8890
